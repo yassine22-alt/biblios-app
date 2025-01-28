@@ -80,4 +80,4 @@ Add new tests for any new features you implement.
 
 ---
 
-Thank you for contributing to [Project Name]!
+Thank you for contributing to Biblios-App!
