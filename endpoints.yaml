@@ -1,0 +1,385 @@
+openapi: 3.0.1
+info:
+  title: Bookstore Management API
+  description: A RESTful API for managing books, authors, customers, and orders.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /books:
+    get:
+      summary: List all books
+      tags:
+        - Books
+      parameters:
+        - name: title
+          in: query
+          description: Filter by book title
+          schema:
+            type: string
+        - name: author
+          in: query
+          description: Filter by author ID
+          schema:
+            type: integer
+        - name: genre
+          in: query
+          description: Filter by genre
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A JSON array of book objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+    post:
+      summary: Create a new book
+      tags:
+        - Books
+      requestBody:
+        description: Book object that needs to be added
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookInput'
+      responses:
+        '201':
+          description: Book created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /books/{id}:
+    get:
+      summary: Get a book by ID
+      tags:
+        - Books
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Book found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '404':
+          description: Book not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update a book
+      tags:
+        - Books
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookInput'
+      responses:
+        '200':
+          description: Book updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '404':
+          description: Book not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete a book
+      tags:
+        - Books
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Book deleted
+        '404':
+          description: Book not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /authors:
+    get:
+      summary: List all authors
+      tags:
+        - Authors
+      responses:
+        '200':
+          description: A JSON array of author objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Author'
+    post:
+      summary: Create a new author
+      tags:
+        - Authors
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthorInput'
+      responses:
+        '201':
+          description: Author created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Author'
+  /authors/{id}:
+    get:
+      summary: Get an author by ID
+      tags:
+        - Authors
+      parameters:
+        - name: id
+          in: path
+          description: ID of the author
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Author found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Author'
+        '404':
+          description: Author not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update an author
+      tags:
+        - Authors
+      parameters:
+        - name: id
+          in: path
+          description: ID of the author to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthorInput'
+      responses:
+        '200':
+          description: Author updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Author'
+        '404':
+          description: Author not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete an author
+      tags:
+        - Authors
+      parameters:
+        - name: id
+          in: path
+          description: ID of the author to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Author deleted
+        '404':
+          description: Author not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /customers:
+    get:
+      summary: List all customers
+      tags:
+        - Customers
+      responses:
+        '200':
+          description: A JSON array of customer objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+    post:
+      summary: Create a new customer
+      tags:
+        - Customers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerInput'
+      responses:
+        '201':
+          description: Customer created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+
+  /customers/{id}:
+    get:
+      summary: Get a customer by ID
+      tags:
+        - Customers
+      parameters:
+        - name: id
+          in: path
+          description: ID of the customer
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Customer found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '404':
+          description: Customer not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update a customer
+      tags:
+        - Customers
+      parameters:
+        - name: id
+          in: path
+          description: ID of the customer to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerInput'
+      responses:
+        '200':
+          description: Customer updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '404':
+          description: Customer not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete a customer
+      tags:
+        - Customers
+      parameters:
+        - name: id
+          in: path
+          description: ID of the customer to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Customer deleted
+        '404':
+          description: Customer not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /orders:
+    get:
+      summary: List all orders
+      tags:
+        - Orders
+      responses:
+        '200':
+          description: A JSON array of order objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+    post:
+      summary: Create a new order
+      tags:
+        - Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderInput'
+      responses:
+        '201':
+          description: Order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+  /orders/{id}:
+    get:
+      summary: Get an order by ID
+      tags:

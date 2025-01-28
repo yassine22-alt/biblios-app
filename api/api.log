@@ -1,0 +1,59 @@
+2025/01/12 17:10:26 Incoming request: GET /reports
+2025/01/12 17:10:32 Incoming request: GET /orders
+2025/01/12 17:10:39 Incoming request: GET /customers
+2025/01/12 17:27:29 Incoming request: GET /authors
+2025/01/12 17:29:59 Incoming request: POST /books
+2025/01/12 17:30:03 Incoming request: POST /books
+2025/01/12 17:30:08 Incoming request: GET /books
+2025/01/12 17:30:16 Incoming request: GET /books/2
+2025/01/12 17:50:36 Incoming request: POST /books
+2025/01/12 17:51:37 Incoming request: POST /authors
+2025/01/12 17:51:47 Incoming request: POST /authors
+2025/01/12 17:51:56 Incoming request: POST /authors
+2025/01/12 17:54:37 Incoming request: POST /books/1
+2025/01/12 17:54:42 Incoming request: GET /books/1
+2025/01/12 17:54:53 Incoming request: POST /books
+2025/01/12 17:55:41 Incoming request: POST /books
+2025/01/12 17:56:05 Incoming request: GET /books
+2025/01/12 17:56:29 Incoming request: GET /books
+2025/01/12 17:56:36 Incoming request: POST /books
+2025/01/12 17:56:40 Incoming request: GET /books
+2025/01/12 17:56:52 Incoming request: GET /customers
+2025/01/12 23:42:34 Incoming request: GET /books
+2025/01/12 23:42:59 Incoming request: GET /books
+2025/01/12 23:44:32 Incoming request: GET /customers
+2025/01/12 23:44:45 Incoming request: GET /authors
+2025/01/12 23:45:46 Incoming request: PUT /authors/1
+2025/01/12 23:46:13 Incoming request: DELETE /authors/1
+2025/01/12 23:49:09 Incoming request: DELETE /reports
+2025/01/12 23:49:53 Incoming request: DELETE /reports
+2025/01/12 23:49:59 Incoming request: GET /reports
+2025/01/12 23:50:29 Incoming request: GET /orders
+2025/01/13 17:46:27 Error serving: listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2025/01/13 17:46:47 Error serving: listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2025/01/13 17:47:09 Error serving: listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2025/01/13 17:47:38 Error serving: listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2025/01/13 17:49:18 Error serving: listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2025/01/13 17:49:24 Error serving: listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2025/01/13 17:49:38 Error serving: listen tcp :8080: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2025/01/13 17:49:55 Incoming request: POST /orders
+2025/01/13 17:50:58 Incoming request: GET /authors/1
+2025/01/13 17:51:02 Incoming request: GET /authors
+2025/01/13 17:51:55 Incoming request: POST /authors
+2025/01/13 17:56:56 Incoming request: GET /authors
+2025/01/13 17:57:02 Incoming request: POST /authors
+2025/01/13 17:57:17 Incoming request: GET /authors
+2025/01/13 17:57:37 Incoming request: GET /authors
+2025/01/13 17:57:45 Incoming request: DELETE /authors/2
+2025/01/13 17:57:49 Incoming request: DELETE /authors/2
+2025/01/13 18:11:28 Incoming request: POST /authors/2
+2025/01/13 18:11:30 Incoming request: POST /authors
+2025/01/13 18:11:48 Incoming request: GET /authors
+2025/01/13 18:19:55 Incoming request: GET /authors
+2025/01/13 18:20:01 Incoming request: POST /authors
+2025/01/13 18:20:07 Incoming request: GET /authors
+2025/01/13 19:00:32 Incoming request: GET /authors
+2025/01/13 19:00:49 Incoming request: PUT /authors/4
+2025/01/13 19:00:55 Incoming request: GET /authors
+2025/01/28 23:23:55 Incoming request: GET /books
+2025/01/28 23:24:06 Incoming request: GET /authors

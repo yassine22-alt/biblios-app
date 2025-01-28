@@ -1,0 +1,22 @@
+{
+  "authors": [
+    {
+      "id": 2,
+      "first_name": "Mark",
+      "last_name": "Twain",
+      "bio": "Mark Twain, born Samuel Langhorne Clemens, was an American writer and humorist best known for 'The Adventures of Tom Sawyer' and 'Adventures of Huckleberry Finn'."
+    },
+    {
+      "id": 3,
+      "first_name": "Mary",
+      "last_name": "Shelley",
+      "bio": "Mary Shelley was an English author best known for her Gothic novel 'Frankenstein', which is often considered one of the first science fiction works."
+    },
+    {
+      "id": 4,
+      "first_name": "brs",
+      "last_name": "blali",
+      "bio": "lorem epsium"
+    }
+  ]
+}

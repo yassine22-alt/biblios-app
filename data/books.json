@@ -1,0 +1,29 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Pride and Prejudice",
+      "author_id": 1,
+      "genres": [
+        "Romance",
+        "Classic"
+      ],
+      "published_at": "2025-01-12T17:54:53.369326+01:00",
+      "price": 12.99,
+      "stock": 100
+    },
+    {
+      "id": 2,
+      "title": "1984",
+      "author_id": 3,
+      "genres": [
+        "Dystopian",
+        "Political Fiction",
+        "Science Fiction"
+      ],
+      "published_at": "2025-01-12T17:56:36.8499153+01:00",
+      "price": 15.5,
+      "stock": 200
+    }
+  ]
+}

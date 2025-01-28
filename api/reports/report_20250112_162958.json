@@ -1,0 +1,25 @@
+{
+  "total_revenue": 43.96,
+  "total_orders": 1,
+  "total_books_sold": 4,
+  "top_selling_books": [
+    {
+      "id": 2,
+      "title": "The Great Gatsby",
+      "author": {
+        "id": 1,
+        "first_name": "F. Scott",
+        "last_name": "Fitzgerald",
+        "bio": "Francis Scott Key Fitzgerald was an American novelist, widely regarded as one of the greatest writers of the 20th century. He is best known for his novels chronicling the Jazz Age, such as 'The Great Gatsby'."
+      },
+      "genres": [
+        "Fiction",
+        "Classic"
+      ],
+      "published_at": "2025-01-10T16:41:48.1447053+01:00",
+      "price": 10.99,
+      "stock": 50
+    }
+  ],
+  "generated_at": "2025-01-12T16:29:58.4551849+01:00"
+}
