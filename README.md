@@ -1,13 +1,71 @@
-# Bookstore API
+# Biblios App
 
 ## Overview
 A Go-based service providing basic CRUD operations for Books, Authors, Customers, Orders, and automatic Sales Reports.
+
+## Collaborators
+- Abdelghafour Mourchid
+- Yassine Blali
+
+
+
+## Roadmap for Future Enhancements 🚀
+
+This application is designed to grow and evolve! Below are the planned improvements to enhance its performance, reliability, and scalability:
+
+### 1. **Implementing PostgreSQL**  
+   Transition from in-memory storage PostgreSQL for persistence, scalability, and data integrity.
+
+### 2. **Adding Proper Error Handling**  
+   - Ensure all errors are consistently captured and logged.  
+   - Provide clear and user-friendly error responses via the API.
+
+### 3. **Implementing Authentication and Authorization**  
+   - Secure the application with user authentication, using JWT-based login.  
+   - Introduce role-based access control for specific endpoints and operations.
+
+### 4. **Adding Input Validation**  
+   - Validate all incoming requests to ensure data consistency and security.  
+   - Prevent invalid or malicious data from entering the system.
+
+### 5. **Implementing Caching (Using Redis)**  
+   - Optimize API performance by caching frequently accessed data.  
+   - Reduce database load for repeated queries.
+
+### 6. **Adding Comprehensive Testing**  
+   - Develop unit, integration, and end-to-end tests to verify application reliability.  
+   - Achieve high test coverage across all features and modules.
+
+### 7. **Containerizing the Application Components Using Docker**  
+   - Dockerize the API and database for consistent and portable deployments.  
+   - Use `docker-compose` for orchestrating multiple containers.
+
+### 8. **Setting Up a CI/CD Pipeline (Using GitHub Actions)**  
+   - Automate build, test, and deployment processes for faster iteration cycles.  
+   - Ensure code quality with automated linting and testing.
+
+### 9. **Implementing Monitoring and Logging**  
+   - Use tools like Prometheus and Grafana to monitor application performance and health.  
+   - Maintain detailed logs for debugging and analytics.
+
+### 10. **Adding Rate Limiting**  
+   - Protect the application from abuse by limiting the number of requests a client can make within a specific time window.
+
+### 11. **Implementing Database Migrations (Using Flyway)**  
+   - Introduce a robust migration strategy to manage database schema changes over time.  
+   - Ensure smooth upgrades and backward compatibility for existing data.
+
+---
+
+### Stay Tuned! 🚧  
+These updates will be rolled out incrementally, making the application production-ready and adaptable to real-world scenarios. If you’re curious about progress or would like to contribute, feel free to reach out or explore the repository!
 
 ## How to Run
 1. Install Go 1.23.4 or higher.
 2. Run `go mod tidy` to install dependencies.
 3. Run `go run api/bookstore.go`.
 4. The server listens on port 8080 by default.
+
 
 ## Endpoints
 
@@ -90,15 +148,5 @@ Below are some examples of tests I have done using Postman
   - ![Logging requests](./assests/log.JPG)
 
 
-### Additional Notes 🛠️✨
 
-This project is just the beginning of an exciting journey! 🚀 For future updates, I plan to take the following steps to make the application even more robust and feature-rich:
-
-- **Enhanced Logging**: Include response status logging to provide better visibility into API behavior and streamline debugging. 📝✅
-- **Expanding Concurrency**: Leverage concurrency in other areas of the API to further optimize performance and scalability. ⚡🧵
-- **Authentication & Authorization**: Implement robust user authentication (e.g., JWT) and role-based access control to secure endpoints. 🔐🔏
-- **Database Migration**: Transition to a powerful database engine like PostgreSQL for reliable, scalable, and persistent data storage. 🗄️🐘
-- **Containerization**: Embrace Docker to containerize the application, ensuring consistent deployment across environments and paving the way for seamless CI/CD integration. 🐳✨
-
-Stay tuned for these updates as the project evolves into a production-ready masterpiece! 💡🚀
 
