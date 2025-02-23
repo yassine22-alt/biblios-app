@@ -10,14 +10,12 @@ import (
 )
 
 type CustomerService struct {
-	repo      repository.CustomerStore
-	currentID int
+	repo repository.CustomerStore
 }
 
 func NewCustomerService(repo repository.CustomerStore) *CustomerService {
 	return &CustomerService{
-		repo:      repo,
-		currentID: 1,
+		repo: repo,
 	}
 }
 
@@ -27,13 +25,11 @@ func (s *CustomerService) CreateCustomer(ctx context.Context, customerInput mode
 	}
 
 	customer := model.Customer{
-		ID:        s.currentID,
 		Name:      customerInput.Name,
 		Email:     customerInput.Email,
 		Address:   customerInput.Address,
 		CreatedAt: time.Now(),
 	}
-	s.currentID++
 
 	if customer.Name == "" {
 		return model.Customer{}, errors.New("customer name is mandatory")

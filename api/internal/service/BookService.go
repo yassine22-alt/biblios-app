@@ -12,14 +12,12 @@ import (
 type BookService struct {
 	repo       repository.BookStore
 	repoAuthor repository.AuthorStore
-	currentID  int
 }
 
 func NewBookService(repo repository.BookStore, repoAuthor repository.AuthorStore) *BookService {
 	return &BookService{
 		repo:       repo,
 		repoAuthor: repoAuthor,
-		currentID:  1,
 	}
 }
 
@@ -30,7 +28,6 @@ func (s *BookService) CreateBook(ctx context.Context, bookInput model.BookInput)
 	}
 
 	book := model.Book{
-		ID:          s.currentID,
 		Title:       bookInput.Title,
 		AuthorID:    bookInput.AuthorID,
 		Genres:      bookInput.Genres,
@@ -38,7 +35,6 @@ func (s *BookService) CreateBook(ctx context.Context, bookInput model.BookInput)
 		Price:       bookInput.Price,
 		Stock:       bookInput.Stock,
 	}
-	s.currentID++
 
 	if book.Stock < 0 || book.Price < 0 {
 		return model.Book{}, errors.New("book details are invalid")
