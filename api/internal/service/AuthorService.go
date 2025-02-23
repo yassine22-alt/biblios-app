@@ -1,10 +1,11 @@
 package service
 
 import (
-	"bookstore/api/api/internal/model"
-	"bookstore/api/api/internal/repository"
 	"context"
 	"errors"
+
+	"github.com/yassine22-alt/biblios-app/api/internal/model"
+	"github.com/yassine22-alt/biblios-app/api/internal/repository"
 )
 
 type AuthorService struct {

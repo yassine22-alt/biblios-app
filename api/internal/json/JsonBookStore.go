@@ -1,7 +1,6 @@
 package json
 
 import (
-	"bookstore/api/api/internal/model"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -9,6 +8,8 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+
+	"github.com/yassine22-alt/biblios-app/api/internal/model"
 )
 
 type JsonBookStore struct {

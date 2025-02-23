@@ -1,12 +1,13 @@
 package handlers
 
 import (
-	"bookstore/api/api/internal/model"
 	"encoding/json"
 	"io"
 	"net/http"
 	"os"
 	"path/filepath"
+
+	"github.com/yassine22-alt/biblios-app/api/internal/model"
 )
 
 type ReportHandler struct {

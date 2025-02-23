@@ -1,9 +1,6 @@
 package main
 
 import (
-	"bookstore/api/api/internal/handlers"
-	"bookstore/api/api/internal/json"
-	"bookstore/api/api/internal/service"
 	"context"
 	"fmt"
 	"log"
@@ -11,6 +8,10 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/yassine22-alt/biblios-app/api/internal/handlers"
+	"github.com/yassine22-alt/biblios-app/api/internal/json"
+	"github.com/yassine22-alt/biblios-app/api/internal/service"
 )
 
 func main() {
