@@ -1,8 +1,6 @@
 package service
 
 import (
-	"bookstore/api/api/internal/model"
-	"bookstore/api/api/internal/repository"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -10,6 +8,9 @@ import (
 	"os"
 	"sort"
 	"time"
+
+	"github.com/yassine22-alt/biblios-app/api/internal/model"
+	"github.com/yassine22-alt/biblios-app/api/internal/repository"
 )
 
 type ReportService struct {

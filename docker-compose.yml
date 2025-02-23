@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: biblios_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init-scripts:/docker-entrypoint-initdb.d
+volumes:
+  pg_data:

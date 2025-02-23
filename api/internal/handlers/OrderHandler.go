@@ -1,14 +1,15 @@
 package handlers
 
 import (
-	"bookstore/api/api/internal/errors"
-	"bookstore/api/api/internal/model"
-	"bookstore/api/api/internal/service"
 	"context"
 	"encoding/json"
 	"net/http"
 	"strconv"
 	"time"
+
+	"github.com/yassine22-alt/biblios-app/api/internal/errors"
+	"github.com/yassine22-alt/biblios-app/api/internal/model"
+	"github.com/yassine22-alt/biblios-app/api/internal/service"
 )
 
 type OrderHandler struct {

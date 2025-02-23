@@ -1,18 +1,18 @@
 package service
 
 import (
-	"bookstore/api/api/internal/model"
-	"bookstore/api/api/internal/repository"
 	"context"
 	"errors"
 	"time"
+
+	"github.com/yassine22-alt/biblios-app/api/internal/model"
+	"github.com/yassine22-alt/biblios-app/api/internal/repository"
 )
 
 type OrderService struct {
 	repo         repository.OrderStore
 	repoCustomer repository.CustomerStore
 	repoBook     repository.BookStore
-	currentID    int
 }
 
 func NewOrderService(repo repository.OrderStore, repoCustomer repository.CustomerStore, repoBook repository.BookStore) *OrderService {
@@ -20,7 +20,6 @@ func NewOrderService(repo repository.OrderStore, repoCustomer repository.Custome
 		repo:         repo,
 		repoCustomer: repoCustomer,
 		repoBook:     repoBook,
-		currentID:    1,
 	}
 }
 
@@ -35,14 +34,12 @@ func (s *OrderService) CreateOrder(ctx context.Context, orderInput model.OrderIn
 	}
 
 	order := model.Order{
-		ID:         s.currentID,
 		CustomerId: orderInput.CustomerId,
 		Items:      orderInput.Items,
 		TotalPrice: totalPrice,
 		CreatedAt:  time.Now(),
 		Status:     "Pending",
 	}
-	s.currentID++
 
 	if order.CustomerId == 0 {
 		return model.Order{}, errors.New("customer ID is mandatory")

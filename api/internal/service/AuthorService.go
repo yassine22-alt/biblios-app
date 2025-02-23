@@ -1,21 +1,20 @@
 package service
 
 import (
-	"bookstore/api/api/internal/model"
-	"bookstore/api/api/internal/repository"
 	"context"
 	"errors"
+
+	"github.com/yassine22-alt/biblios-app/api/internal/model"
+	"github.com/yassine22-alt/biblios-app/api/internal/repository"
 )
 
 type AuthorService struct {
-	repo      repository.AuthorStore
-	currentID int
+	repo repository.AuthorStore
 }
 
 func NewAuthorService(repo repository.AuthorStore) *AuthorService {
 	return &AuthorService{
-		repo:      repo,
-		currentID: 1,
+		repo: repo,
 	}
 }
 
@@ -24,12 +23,10 @@ func (s *AuthorService) CreateAuthor(ctx context.Context, authorInput model.Auth
 		return model.Author{}, err
 	}
 	author := model.Author{
-		ID:        s.currentID,
 		FirstName: authorInput.FirstName,
 		LastName:  authorInput.LastName,
 		Bio:       authorInput.Bio,
 	}
-	s.currentID++
 
 	if author.FirstName == "" || author.LastName == "" {
 		return model.Author{}, errors.New("author name is mandatory")

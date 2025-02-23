@@ -1,13 +1,14 @@
 package json
 
 import (
-	"bookstore/api/api/internal/model"
 	"context"
 	"encoding/json"
 	"fmt"
 	"os"
 	"strconv"
 	"sync"
+
+	"github.com/yassine22-alt/biblios-app/api/internal/model"
 )
 
 type JsonOrderStore struct {

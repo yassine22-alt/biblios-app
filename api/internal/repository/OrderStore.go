@@ -1,8 +1,9 @@
 package repository
 
 import (
-	"bookstore/api/api/internal/model"
 	"context"
+
+	"github.com/yassine22-alt/biblios-app/api/internal/model"
 )
 
 type OrderStore interface {

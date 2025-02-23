@@ -1,9 +1,6 @@
 package main
 
 import (
-	"bookstore/api/api/internal/handlers"
-	"bookstore/api/api/internal/json"
-	"bookstore/api/api/internal/service"
 	"context"
 	"fmt"
 	"log"
@@ -11,13 +8,28 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/jackc/pgx/v5"
+	"github.com/yassine22-alt/biblios-app/api/internal/handlers"
+	"github.com/yassine22-alt/biblios-app/api/internal/postgres"
+	"github.com/yassine22-alt/biblios-app/api/internal/service"
 )
 
 func main() {
-	bookRepo := json.NewJsonBookStore()
-	authorRepo := json.NewJsonAuthorStore()
-	customerRepo := json.NewJsonCustomerStore()
-	orderRepo := json.NewJsonOrderStore()
+
+	connStr := "postgres://postgres:secret@localhost:5432/biblios_db"
+
+	conn, err := pgx.Connect(context.Background(), connStr)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer conn.Close(context.Background())
+
+	bookRepo := postgres.NewPostgresBookStore(conn)
+	authorRepo := postgres.NewPostgresAuthorStore(conn)
+	customerRepo := postgres.NewPostgresCustomerStore(conn)
+	orderRepo := postgres.NewPostgresOrderStore(conn)
 
 	bookService := service.NewBookService(bookRepo, authorRepo)
 	authorService := service.NewAuthorService(authorRepo)
@@ -67,23 +79,23 @@ func main() {
 	stop := make(chan os.Signal, 1)
 	signal.Notify(stop, os.Interrupt, syscall.SIGTERM)
 
-	go func() {
-		<-stop
-		fmt.Println("\nSaving data to files...")
+	// go func() {
+	// 	<-stop
+	// 	fmt.Println("\nSaving data to files...")
 
-		if err := authorRepo.SaveToFile(); err != nil {
-			logger.Printf("Error saving authors: %v\n", err)
-		} else if err := customerRepo.SaveToFile(); err != nil {
-			logger.Printf("Error saving customers: %v\n", err)
-		} else if err := bookRepo.SaveToFile(); err != nil {
-			logger.Printf("Error saving books: %v\n", err)
-		} else if err := orderRepo.SaveToFile(); err != nil {
-			logger.Printf("Error saving orders: %v\n", err)
-		}
+	// 	if err := authorRepo.SaveToFile(); err != nil {
+	// 		logger.Printf("Error saving authors: %v\n", err)
+	// 	} else if err := customerRepo.SaveToFile(); err != nil {
+	// 		logger.Printf("Error saving customers: %v\n", err)
+	// 	} else if err := bookRepo.SaveToFile(); err != nil {
+	// 		logger.Printf("Error saving books: %v\n", err)
+	// 	} else if err := orderRepo.SaveToFile(); err != nil {
+	// 		logger.Printf("Error saving orders: %v\n", err)
+	// 	}
 
-		fmt.Println("Data saved successfully")
-		os.Exit(0)
-	}()
+	// 	fmt.Println("Data saved successfully")
+	// 	os.Exit(0)
+	// }()
 
 	err1 := http.ListenAndServe(":8080", nil)
 	if err1 != nil {
